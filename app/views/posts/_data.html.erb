@@ -1,7 +1,7 @@
 <tr id="post_<%= p.id %>">
     <td><%= p.title %></td> 
     <td><%= p.content %></td>
-    <td><%#= link_to 'Show', post , remote: true %></td>
+    <td><%= link_to 'Show', p, class: "btn btn-success btn-sm", remote: true %></td>
     <td><%= link_to 'Edit', edit_post_path(p), class: "btn btn-warning btn-sm", remote: true %></td>
     <td><%= link_to 'Destroy', p, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' }, remote:true %></td>
 </tr>

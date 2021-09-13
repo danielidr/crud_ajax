@@ -1,15 +1,16 @@
 class PostsController < ApplicationController
+
+    before_action :set_post, only: %i[ show edit update destroy ]
     
     def index
         @posts = Post.all
     end
 
-    def show
-
-    end
-
     def new
         @post = Post.new
+    end
+
+    def show
     end
 
     def create
@@ -22,11 +23,9 @@ class PostsController < ApplicationController
     end
 
     def edit
-        @post = Post.find(params[:id])
     end
 
     def destroy
-        @post = Post.find(params[:id])
         @post.destroy
         respond_to do |format|
             format.js { render nothing: true, notice: "Post was successfully destroyed." }
@@ -34,7 +33,6 @@ class PostsController < ApplicationController
     end
     
     def update
-        @post = Post.find(params[:id])
         respond_to do |format|
             if @post.update(post_params)
                 format.js { render nothing: true, notice: "Post was successfully updated." }
@@ -44,6 +42,10 @@ class PostsController < ApplicationController
     end
 
     private
+
+    def set_post
+        @post = Post.find(params[:id])
+    end
 
     def post_params
         params.require(:post).permit(:title, :content)

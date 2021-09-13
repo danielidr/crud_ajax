@@ -1,0 +1,3 @@
+$("#createData").empty();
+$("#post_<%= @post.id %>").replaceWith("<%= j render('posts/data', p: @post) %>");
+$("#createData").empty();

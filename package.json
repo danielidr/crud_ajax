@@ -1,0 +1,7 @@
+{
+  "name": "crud_ajax",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}

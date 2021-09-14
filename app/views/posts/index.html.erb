@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div id="createData"></div>
-<h1 class="pt-4">Posts</h1>
 
+<div class="row">
+    <h1 class="pt-4 col-9">Posts</h1>
+    <%= render('posts/search') %>
+</div>
 <table class="table table-striped">
     <thead>
         <tr>

@@ -3,7 +3,11 @@ class PostsController < ApplicationController
     before_action :set_post, only: %i[ show edit update destroy ]
     
     def index
-        @posts = Post.all
+        if params[:q] 
+            @posts = Post.find_by('title LIKE ?', "%#{params[:q]}%") || (Post.find_by('content LIKE ?',"%#{params[:q]}%"))
+        else 
+            @posts = Post.all
+        end
     end
 
     def new
